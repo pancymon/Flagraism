@@ -52,7 +52,7 @@ public class HeroControl : MonoBehaviour {
         //m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
     }
 
-    private bool m_GameOver = false;
+    public bool m_GameOver = false;
 
     public void setGameOver(int isOver)
     {
