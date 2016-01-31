@@ -7,6 +7,8 @@ public class HeroControl : MonoBehaviour {
     public Rigidbody2D m_Upper;
     public HingeJoint2D m_LowwerJoint;
     public HingeJoint2D m_UpperJoint;
+    public Rigidbody2D m_Head;
+    public HingeJoint2D m_HeadJoint;
 
     private Vector3 lowwerPosition;
     private Vector3 upperPosition;
@@ -23,16 +25,26 @@ public class HeroControl : MonoBehaviour {
         upperPosition.y += m_Upper.GetComponent<SpriteRenderer>().bounds.max.y;
 
         float y = m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y- m_Lowwer.GetComponent<SpriteRenderer>().bounds.min.y;
+        //Debug.Log(m_Lowwer.transform.root.transform.localScale.y);
+        y /= m_Lowwer.transform.root.transform.localScale.y;
         m_LowwerJoint.anchor = new Vector2(0, -0.5f * y);
 
         y = m_Upper.GetComponent<SpriteRenderer>().bounds.max.y - m_Upper.GetComponent<SpriteRenderer>().bounds.min.y;
+        y/= m_Upper.transform.root.transform.localScale.y;
+
         m_UpperJoint.anchor = new Vector2(0, -0.5f * y);
         m_UpperJoint.connectedAnchor = new Vector2(0, 0.5f * y);
+
+        y = m_Head.GetComponent<SpriteRenderer>().bounds.max.y - m_Head.GetComponent<SpriteRenderer>().bounds.min.y;
+        y /= m_Head.transform.root.transform.localScale.y;
+
+        m_HeadJoint.anchor = new Vector2(0, -0.5f * y);
+        m_HeadJoint.connectedAnchor = new Vector2(0, 0.5f * y);
 
         lowwer_Mass = m_Lowwer.mass;
         upper_Mass = m_Upper.mass;
 
-        m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
+        //m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
     }
 
 
@@ -121,11 +133,13 @@ public class HeroControl : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.A))
         {
+            Debug.Log("a");
             //m_Upper.AddForceAtPosition(new Vector2(-1 * upper_Multiplier, 0), upperPosition, ForceMode2D.Impulse);
             //Debug.Log(m_Upper.gameObject.transform.rotation.eulerAngles);
             float z = m_Upper.gameObject.transform.rotation.eulerAngles.z % 360;
             //Debug.Log(z);
             z += 90;
+            z %= 360;
             float angle = z / 180 * Mathf.PI;
             float x = -1 * Mathf.Sin(angle);
             float y = Mathf.Cos(angle);
@@ -143,6 +157,7 @@ public class HeroControl : MonoBehaviour {
             float z = m_Upper.gameObject.transform.rotation.eulerAngles.z % 360;
             //Debug.Log(z);
             z -= 90;
+            z %= 360;
             float angle = z / 180 * Mathf.PI;
             float x = -1 * Mathf.Sin(angle);
             float y = Mathf.Cos(angle);
