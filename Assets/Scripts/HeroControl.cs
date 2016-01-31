@@ -48,15 +48,27 @@ public class HeroControl : MonoBehaviour {
         lowwer_Mass = m_Lowwer.mass;
         upper_Mass = m_Upper.mass;
 
-        m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
+        //m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
     }
 
+    private bool m_GameOver = false;
 
+    public void setGameOver(int isOver)
+    {
+        Debug.Log("game over");
+        if (isOver == 1)
+            m_GameOver = true;
+        else
+            m_GameOver = false;
+    }
 
 	// Update is called once per frame
 	void Update () {
+        if (m_GameOver)
+            return;
         //GetKey();
-
+        if (Input.GetKeyDown(KeyCode.Space))
+            GameStart();
     }
 
     void FixedUpdate()
@@ -137,7 +149,7 @@ public class HeroControl : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("a");
+            //Debug.Log("a");
             //m_Upper.AddForceAtPosition(new Vector2(-1 * upper_Multiplier, 0), upperPosition, ForceMode2D.Impulse);
             //Debug.Log(m_Upper.gameObject.transform.rotation.eulerAngles);
             float z = m_Upper.gameObject.transform.rotation.eulerAngles.z % 360;
@@ -176,4 +188,18 @@ public class HeroControl : MonoBehaviour {
             //m_Joint.motor = motor;
         }
     }
+
+    private bool gameStarted = false;
+
+    public void GameStart()
+    {
+        if (gameStarted)
+            return;
+        gameStarted = true;
+        m_Lowwer.isKinematic = false;
+        m_Upper.isKinematic = false;
+        m_Head.isKinematic = false;
+        m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
+    }
+
 }
