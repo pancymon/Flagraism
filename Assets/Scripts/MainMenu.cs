@@ -4,10 +4,13 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
+    
+
     public GameObject Play;
     public GameObject Help;
     public GameObject helpContent;
-    public Texture2D helpImage;
+    public TimesofGame timesofGame;
+    
     public Flag flag;
     public Camera MainCamera;
     public Vector3 camerOriginalPoint = new Vector3(0, 3.5f, -10);
@@ -16,6 +19,7 @@ public class MainMenu : MonoBehaviour {
     public bool moveCamera = false;
     public bool gameOver = false;
     
+    
     public float speed = 0.5f;
 
     public GameObject m_Hero;
@@ -23,7 +27,8 @@ public class MainMenu : MonoBehaviour {
     public void moveObjects()
     {      
         flag.transform.position = new Vector3(6.868f, -0.8f, 0);
-        moveCamera = true;
+        if(timesofGame.isFirstTime)
+            moveCamera = true;
     }
 
 
@@ -35,14 +40,35 @@ public class MainMenu : MonoBehaviour {
 
     void Start()
     {
-        //HelpContent.GetComponentInChildren<Image>().enabled = false;
-        //HelpContent.GetComponentInChildren<Text>().color = Color.clear;
-        //HelpContent.enabled = false;
+        GameObject gameObject = GameObject.FindWithTag("TimesofGame");
+        if (gameObject != null)
+        {
+            timesofGame = gameObject.GetComponent<TimesofGame>();
+
+        }
+        if (flag == null)
+        {
+            Debug.Log("Cannot find 'TimesofGame' script");
+        }
+
+        if (!timesofGame.isFirstTime)
+        {
+            MainCamera.transform.position = gameStartPoint;
+            flag.transform.position = new Vector3(6.868f, -0.8f, 0);
+        }
+
+        if (!timesofGame.isFirstTime)
+        {
+            Play.SetActive(false);
+            Help.SetActive(false);
+        }
         helpContent.SetActive(false);
     }
 
     void Update()
     {
+        
+
         if (moveCamera)
         {
 
@@ -65,6 +91,7 @@ public class MainMenu : MonoBehaviour {
                 m_Hero.SendMessage("GameStart");
             gameStart = true;
             moveCamera = false;
+            timesofGame.isFirstTime = false;
         }
 
 
@@ -74,6 +101,14 @@ public class MainMenu : MonoBehaviour {
             Help.SetActive(true);
         }
 
+    }
+
+    public void ResetGame()
+    {
+        gameOver = false;
+        
+        if(!timesofGame.isFirstTime)
+            Application.LoadLevel(0);
     }
 
 }
