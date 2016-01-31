@@ -19,10 +19,14 @@ public class HeroControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //return;
+
+        //m_Lowwer = GameObject.Find()
+
         lowwerPosition = m_Lowwer.transform.position;
-        lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y;
+        lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
         upperPosition = m_Upper.transform.position;
-        upperPosition.y += m_Upper.GetComponent<SpriteRenderer>().bounds.max.y;
+        upperPosition.y += m_Upper.GetComponent<SpriteRenderer>().bounds.max.y * m_Upper.transform.root.transform.localScale.y;
 
         float y = m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y- m_Lowwer.GetComponent<SpriteRenderer>().bounds.min.y;
         //Debug.Log(m_Lowwer.transform.root.transform.localScale.y);
@@ -121,14 +125,14 @@ public class HeroControl : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             lowwerPosition = m_Lowwer.transform.position;
-            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y;
+            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
             m_Lowwer.AddForceAtPosition(new Vector2(-1 * lowwer_Mass * getKeyMultiplier, 0), lowwerPosition, ForceMode2D.Impulse);
             //Debug.Log("space");
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             lowwerPosition = m_Lowwer.transform.position;
-            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y;
+            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
             m_Lowwer.AddForceAtPosition(new Vector2(1 * lowwer_Mass * getKeyMultiplier, 0), lowwerPosition, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.A))
