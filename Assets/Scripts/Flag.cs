@@ -21,7 +21,7 @@ public class Flag : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if (gameManager.gameStart)
+        if (gameManager.gameStart && gameManager.gameOver == false)
         {
             
             Vector3 pos = transform.position;

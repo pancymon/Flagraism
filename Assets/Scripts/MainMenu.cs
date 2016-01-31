@@ -4,8 +4,9 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-    public Button Play;
-    public Button Help;
+    public GameObject Play;
+    public GameObject Help;
+    public GameObject helpContent;
     public Texture2D helpImage;
     public Flag flag;
     public Camera MainCamera;
@@ -14,7 +15,7 @@ public class MainMenu : MonoBehaviour {
     public bool gameStart = false;
     public bool moveCamera = false;
     public bool gameOver = false;
-    public bool onClickHelp = false;
+    
     public float speed = 0.5f;
 
     public GameObject m_Hero;
@@ -25,37 +26,26 @@ public class MainMenu : MonoBehaviour {
         moveCamera = true;
     }
 
-    public void HideButton()
-    {
-        Play.GetComponentInChildren<Image>().enabled = false;    
-        Play.GetComponentInChildren<Text>().color = Color.clear;
-        Play.enabled = false;
-        Help.GetComponentInChildren<Image>().enabled = false;
-        Help.GetComponentInChildren<Text>().color = Color.clear;
-        Help.enabled = false;
-    }
+
 
     public void GetHelp()
     {
-        onClickHelp = true;
-    }
-
-    void OnGUI()
-    {
-        if(onClickHelp)
-            GUI.DrawTexture(new Rect(Screen.width/4,Screen.height/4, Screen.width/2,Screen.height/2),helpImage);
+        helpContent.SetActive(true);
     }
 
     void Start()
     {
-        
+        //HelpContent.GetComponentInChildren<Image>().enabled = false;
+        //HelpContent.GetComponentInChildren<Text>().color = Color.clear;
+        //HelpContent.enabled = false;
+        helpContent.SetActive(false);
     }
 
     void Update()
     {
         if (moveCamera)
         {
-            
+
             Vector3 pos = MainCamera.transform.position;
             Vector3 velocity = new Vector3(0, speed * Time.smoothDeltaTime, 0);
 
@@ -69,15 +59,21 @@ public class MainMenu : MonoBehaviour {
         }
 
 
-        if (MainCamera.transform.position.y <=  gameStartPoint.y)
+        if (MainCamera.transform.position.y <= gameStartPoint.y)
         {
             if (m_Hero != null)
                 m_Hero.SendMessage("GameStart");
             gameStart = true;
             moveCamera = false;
         }
-    }
-	
 
+
+        if (gameOver)
+        {
+            Play.SetActive(true);
+            Help.SetActive(true);
+        }
+
+    }
 
 }

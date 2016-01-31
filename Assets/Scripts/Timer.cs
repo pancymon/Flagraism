@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (gameManager.gameStart)
+        if (gameManager.gameStart && gameManager.gameOver == false)
         {
             if (timeRecord)
             {
