@@ -125,14 +125,14 @@ public class HeroControl : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             lowwerPosition = m_Lowwer.transform.position;
-            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
+            lowwerPosition.y = m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
             m_Lowwer.AddForceAtPosition(new Vector2(-1 * lowwer_Mass * getKeyMultiplier, 0), lowwerPosition, ForceMode2D.Impulse);
             //Debug.Log("space");
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             lowwerPosition = m_Lowwer.transform.position;
-            lowwerPosition.y += m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
+            lowwerPosition.y = m_Lowwer.GetComponent<SpriteRenderer>().bounds.max.y * m_Lowwer.transform.root.transform.localScale.y;
             m_Lowwer.AddForceAtPosition(new Vector2(1 * lowwer_Mass * getKeyMultiplier, 0), lowwerPosition, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.A))
