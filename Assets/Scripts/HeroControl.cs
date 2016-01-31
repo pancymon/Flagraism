@@ -9,6 +9,7 @@ public class HeroControl : MonoBehaviour {
     public HingeJoint2D m_UpperJoint;
     public Rigidbody2D m_Head;
     public HingeJoint2D m_HeadJoint;
+    public MainMenu gameManager;
 
     private Vector3 lowwerPosition;
     private Vector3 upperPosition;
@@ -57,7 +58,10 @@ public class HeroControl : MonoBehaviour {
     {
         Debug.Log("game over");
         if (isOver == 1)
+        {
             m_GameOver = true;
+            gameManager.gameOver = true;
+        }
         else
             m_GameOver = false;
     }
