@@ -44,7 +44,7 @@ public class HeroControl : MonoBehaviour {
         lowwer_Mass = m_Lowwer.mass;
         upper_Mass = m_Upper.mass;
 
-        //m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
+        m_Lowwer.AddForceAtPosition(new Vector2(-0.1f * lowwer_Mass, 0), lowwerPosition, ForceMode2D.Impulse);
     }
 
 
