@@ -6,11 +6,13 @@ public class animationController : MonoBehaviour {
     HeroControl hero_;
     Animator anim;
     GameObject heroPre;
+    GameObject samen;
 
 	// Use this for initialization
 	void Start () {
         hero_ = GameObject.Find("Hero").GetComponent<HeroControl>();
         heroPre = GameObject.Find("Hero");
+        samen = GameObject.Find("saman");
         anim = this.GetComponent<Animator>();
 	}
 	
@@ -27,6 +29,8 @@ public class animationController : MonoBehaviour {
         heroPre.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         heroPre.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
         heroPre.transform.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+
+        samen.transform.localScale = new Vector3(-0.5639485f, 0.5639485f, 0.5639485f);
     }
 	}
 }
