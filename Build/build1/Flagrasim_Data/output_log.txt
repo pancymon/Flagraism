@@ -1,0 +1,67 @@
+Initialize engine version: 5.2.1f1 (44735ea161b3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
+    Vendor:   Intel
+    VRAM:     816 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.345 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\BitBucket\Flag\Build\build1\Flagrasim_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2bf0 -> priority: 1 
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.695214 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 394.
+Total: 0.872822 ms (FindLiveObjects: 0.067380 ms CreateObjectMapping: 0.031682 ms MarkObjects: 0.736723 ms  DeleteObjects: 0.035252 ms)
+
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.381074 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 394.
+Total: 0.634536 ms (FindLiveObjects: 0.078536 ms CreateObjectMapping: 0.029451 ms MarkObjects: 0.504238 ms  DeleteObjects: 0.020972 ms)
+
+game over
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.842030 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 394.
+Total: 0.844710 ms (FindLiveObjects: 0.086568 ms CreateObjectMapping: 0.041499 ms MarkObjects: 0.693885 ms  DeleteObjects: 0.020080 ms)
+

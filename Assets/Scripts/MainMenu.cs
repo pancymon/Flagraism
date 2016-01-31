@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour {
     public GameObject Play;
     public GameObject Help;
     public GameObject helpContent;
+    public GameObject mask;
+
     public TimesofGame timesofGame;
     
     public Flag flag;
@@ -18,9 +20,11 @@ public class MainMenu : MonoBehaviour {
     public bool gameStart = false;
     public bool moveCamera = false;
     public bool gameOver = false;
+    public bool isfade = false;
     
     
     public float speed = 0.5f;
+    public float fadeSpeed;
 
     public GameObject m_Hero;
 
@@ -99,16 +103,42 @@ public class MainMenu : MonoBehaviour {
         {
             Play.SetActive(true);
             Help.SetActive(true);
+    
+        }
+
+        if(isfade)
+        {
+            fadeImage();
         }
 
     }
 
     public void ResetGame()
     {
-        gameOver = false;
-        
+        //gameOver = false;
+
         if(!timesofGame.isFirstTime)
-            Application.LoadLevel(0);
+        {
+
+            mask.SetActive(true);
+            isfade = true;
+            StartCoroutine(waits());
+
+        }
+            
+    }
+
+    public void fadeImage()
+    {
+        mask.GetComponent<RawImage>().color += new Color(0, 0, 0, speed*Time.deltaTime);
+    }
+
+    
+
+    IEnumerator waits() {
+
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel(0);
     }
 
 }
