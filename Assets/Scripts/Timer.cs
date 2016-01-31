@@ -6,7 +6,9 @@ public class Timer : MonoBehaviour {
 
     public Text timerText;
     public GameObject flagObject;
+    public MainMenu gameManager;
     public Flag flag;
+    public bool timeRecord = true;
     private float startTime;
 
 	// Use this for initialization
@@ -21,21 +23,30 @@ public class Timer : MonoBehaviour {
         {
             Debug.Log("Cannot find 'Flag' script");
         }
-        startTime =
-            (flag.endPoint - flag.transform.position.y) / flag.speed;
+        
+            
         
        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float t = startTime - Time.time;
 
-        string minutes = ((int)t / 60).ToString();
-        string seconds = (t % 60).ToString("f1");
+        if (gameManager.gameStart)
+        {
+            if (timeRecord)
+            {
+                startTime = Time.time;
+                timeRecord = false;
+            }
+            float t = Time.time - startTime;
 
-        if( t >= 0)
-        timerText.text = minutes + ":" + seconds;
+            string minutes = ((int)t / 60).ToString();
+            string seconds = (t % 60).ToString("f1");
+
+            if (t >= 0)
+                timerText.text = minutes + ":" + seconds;
+        }
 
 	}
 }

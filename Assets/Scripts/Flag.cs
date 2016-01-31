@@ -5,6 +5,9 @@ public class Flag : MonoBehaviour {
 
     public float speed = 0.5f;
     public float endPoint = 4.8f;
+    
+    
+    public MainMenu gameManager;
     private float wholeTime;
     private float tour;
 
@@ -17,13 +20,21 @@ public class Flag : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 pos = transform.position;
-        Vector3 velocity = new Vector3(0, speed * Time.smoothDeltaTime, 0);
+        
+        if (gameManager.gameStart)
+        {
+            
+            Vector3 pos = transform.position;
+            //Vector3 velocity = new Vector3(0, speed * Time.smoothDeltaTime, 0);
+            Vector3 velocity = new Vector3(0, tour/20000, 0);
 
-        pos += velocity;
+            pos += velocity;
 
-        if (transform.position.y <= endPoint)
-            transform.position = pos;
+            //if (transform.position.y <= endPoint)
+                transform.position = pos;
+            tour = endPoint - transform.position.y;
+        }
+        
 
 	}
 
