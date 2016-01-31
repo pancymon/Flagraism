@@ -13,7 +13,9 @@ public class MainMenu : MonoBehaviour {
     public bool gameStart = false;
     public bool moveCamera = false;
     public float speed = 0.5f;
-    
+
+    public GameObject m_Hero;
+
     public void moveObjects()
     {      
         flag.transform.position = new Vector3(6.868f, -0.8f, 0);
@@ -61,6 +63,8 @@ public class MainMenu : MonoBehaviour {
 
         if (MainCamera.transform.position.y <=  gameStartPoint.y)
         {
+            if (m_Hero != null)
+                m_Hero.SendMessage("GameStart");
             gameStart = true;
             moveCamera = false;
         }

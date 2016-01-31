@@ -73,6 +73,26 @@ public class HeroControl : MonoBehaviour {
     void FixedUpdate()
     {
         GetKey();
+        AddDifficulty();
+    }
+
+    private float angleRange = 0f;
+    private float lastAdd = 0f;
+    private float addInterval = 1f;
+
+    void AddDifficulty()
+    {
+        if (!gameStarted)
+            return;
+        if (Time.time - lastAdd > addInterval)
+        {
+            lastAdd = Time.time;
+            angleRange++;
+            JointAngleLimits2D limit = new JointAngleLimits2D();
+            limit.min = -1 * angleRange;
+            limit.max = angleRange;
+            m_UpperJoint.limits = limit;
+        }
     }
 
     void GetKeyDown()
@@ -196,6 +216,7 @@ public class HeroControl : MonoBehaviour {
     {
         if (gameStarted)
             return;
+        lastAdd = Time.time;
         gameStarted = true;
         m_Lowwer.isKinematic = false;
         m_Upper.isKinematic = false;
