@@ -82,7 +82,7 @@ public class HeroControl : MonoBehaviour {
 
     void AddDifficulty()
     {
-        if (!gameStarted)
+        if (!m_gameStarted||m_GameOver)
             return;
         if (Time.time - lastAdd > addInterval)
         {
@@ -210,14 +210,14 @@ public class HeroControl : MonoBehaviour {
         }
     }
 
-    private bool gameStarted = false;
+    private bool m_gameStarted = false;
 
     public void GameStart()
     {
-        if (gameStarted)
+        if (m_gameStarted)
             return;
         lastAdd = Time.time;
-        gameStarted = true;
+        m_gameStarted = true;
         m_Lowwer.isKinematic = false;
         m_Upper.isKinematic = false;
         m_Head.isKinematic = false;
