@@ -45,10 +45,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Ground.cs" />
      <Compile Include="Assets\Scripts\BackgroundScrolling.cs" />
      <Compile Include="Assets\Scripts\Flag.cs" />
+     <Compile Include="Assets\Scripts\HeroControl.cs" />
+     <Compile Include="Assets\Scripts\LightSwap.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
+     <Compile Include="Assets\animationController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
