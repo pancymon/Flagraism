@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject Help;
     public GameObject helpContent;
     public GameObject mask;
+    public GameObject designers;
 
     public TimesofGame timesofGame;
     
@@ -29,7 +30,8 @@ public class MainMenu : MonoBehaviour {
     public GameObject m_Hero;
 
     public void moveObjects()
-    {      
+    {
+        designers.SetActive(false);
         flag.transform.position = new Vector3(6.868f, -0.8f, 0);
         if(timesofGame.isFirstTime)
             moveCamera = true;
@@ -65,6 +67,7 @@ public class MainMenu : MonoBehaviour {
         {
             Play.SetActive(false);
             Help.SetActive(false);
+            designers.SetActive(false);
         }
         helpContent.SetActive(false);
     }
