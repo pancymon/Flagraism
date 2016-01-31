@@ -5,13 +5,16 @@ using System.Collections;
 public class MainMenu : MonoBehaviour {
 
     public Button Play;
-    public Button Quit;
+    public Button Help;
+    public Texture2D helpImage;
     public Flag flag;
     public Camera MainCamera;
     public Vector3 camerOriginalPoint = new Vector3(0, 3.5f, -10);
     public Vector3 gameStartPoint = new Vector3(0, 1.35f, -10);
     public bool gameStart = false;
     public bool moveCamera = false;
+    public bool gameOver = false;
+    public bool onClickHelp = false;
     public float speed = 0.5f;
 
     public GameObject m_Hero;
@@ -27,15 +30,20 @@ public class MainMenu : MonoBehaviour {
         Play.GetComponentInChildren<Image>().enabled = false;    
         Play.GetComponentInChildren<Text>().color = Color.clear;
         Play.enabled = false;
-        Quit.GetComponentInChildren<Image>().enabled = false;
-        Quit.GetComponentInChildren<Text>().color = Color.clear;
-        Quit.enabled = false;
+        Help.GetComponentInChildren<Image>().enabled = false;
+        Help.GetComponentInChildren<Text>().color = Color.clear;
+        Help.enabled = false;
     }
 
-    public void Shutdown()
+    public void GetHelp()
     {
-        Debug.Log("Quit!!");
-        Application.Quit();
+        onClickHelp = true;
+    }
+
+    void OnGUI()
+    {
+        if(onClickHelp)
+            GUI.DrawTexture(new Rect(Screen.width/4,Screen.height/4, Screen.width/2,Screen.height/2),helpImage);
     }
 
     void Start()

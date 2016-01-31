@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Ground.cs" />
     <Compile Include="Assets\Scripts\BackgroundScrolling.cs" />
     <Compile Include="Assets\Scripts\Flag.cs" />
     <Compile Include="Assets\Scripts\HeroControl.cs" />
