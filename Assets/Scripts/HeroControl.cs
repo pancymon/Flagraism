@@ -64,8 +64,7 @@ public class HeroControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (m_GameOver)
-            return;
+
         //GetKey();
         if (Input.GetKeyDown(KeyCode.Space))
             GameStart();
@@ -134,6 +133,8 @@ public class HeroControl : MonoBehaviour {
 
     void GetKey()
     {
+        if (m_GameOver)
+            return;
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             lowwerPosition = m_Lowwer.transform.position;
